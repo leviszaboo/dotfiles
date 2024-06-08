@@ -1,0 +1,4 @@
+#!/bin/bash
+
+brew list --formulae >  "$HOME"/dotfiles/brew_formulae
+brew list --cask > "$HOME"/dotfiles/brew_casks
