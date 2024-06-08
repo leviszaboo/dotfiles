@@ -1,0 +1,31 @@
+yabai -m config layout bsp
+
+yabai -m config window_placement second_child
+
+# yabai -m window_shadow on
+# yabai -m active_window_opacity 1.0
+# yabai -m normal_window_opacity 0.90
+
+# Padding
+yabai -m config top_padding 24
+yabai -m config bottom_padding 12
+yabai -m config right_padding 16
+yabai -m config left_padding 16
+yabai -m config window_gap 15
+
+# mouse settings
+# yabai -m config mouse_follows_focus on
+
+yabai -m config mouse_modifier alt
+yabai -m config mouse_action1 move
+yabai -m config mouse_action2 resize
+
+# Disable specific apps
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Karabiner-Element$" manage=off
+yabai -m rule --add app="^App Store$" manage=off
+yabai -m rule --add app="^Calendar$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+
+yabai -m config external_bar all:45:65
