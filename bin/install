@@ -1,0 +1,19 @@
+#!bin/bash
+
+ROOT_DIR="$HOME"/dotfiles
+
+echo "Do you have Homebrew installed on your system? (y/n)"
+read answer
+
+if [ "$answer" = "y" ]; then
+    echo "Installing packages..."
+elif [ "$answer" = "no" ]; then
+    echo "Installing Homebrew..."
+
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else
+    echo "Invalid response. Please answer with 'yes' or 'no'."
+fi
+
+brew install $(cat $"ROOT_DIR"/brew_formulae)
+brew install $(cat $"ROOT_DIR"/brew_casks)
