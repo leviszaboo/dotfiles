@@ -13,6 +13,16 @@ My macOS configuration files.
 cd $"HOME"/dotfiles
 stow .
 
+curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v1.0.16/sketchybar-app-font.ttf -o $HOME/Library/Fonts/sketchybar-app-font.ttf
+
 brew services start sketchybar
+
+ln -s $(which sketchybar) $(dirname $(which sketchybar))/bottom_bar
 nohup bottom_bar --config ~/.config/bottom_bar/sketchybarrc > /dev/null 2>&1 &
+
+brew services start borders
+```
+4. Install Oh My Zsh
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
