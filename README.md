@@ -8,8 +8,11 @@ My macOS configuration files.
 
 1. Clone the repository into a ```dotfiles``` folder in your home directory.
 2. To install the packages, simply run the ```bin/install``` script.
-3. Then, paste the following snippet in your terminal to symlink the files to your home directory>
+3. Then, paste the following snippet in your terminal to symlink the files to your home directory:
 ```bash
 cd $"HOME"/dotfiles
 stow .
+
+brew services start sketchybar
+nohup bottom_bar --config ~/.config/bottom_bar/sketchybarrc > /dev/null 2>&1 &
 ```
