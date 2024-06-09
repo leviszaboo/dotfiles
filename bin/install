@@ -1,19 +1,48 @@
-#!bin/bash
+#!/bin/bash
 
 ROOT_DIR="$HOME"/dotfiles
+EXTENSIONS_FILE="$ROOT_DIR"/code_extensions
 
 echo "Do you have Homebrew installed on your system? (y/n)"
 read answer
 
 if [ "$answer" = "y" ]; then
-    echo "Installing packages..."
+  echo "Installing packages..."
 elif [ "$answer" = "n" ]; then
-    echo "Installing Homebrew..."
+  echo "Installing Homebrew..."
 
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+  (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/levi/.zprofile
+  
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 else
-    echo "Invalid response. Please answer with 'y' or 'n'."
+  echo "Invalid response. Please answer with 'y' or 'n'."
 fi
 
-brew install $(cat $"ROOT_DIR"/brew_formulae)
-brew install $(cat $"ROOT_DIR"/brew_casks)
+brew tap FelixKratz/formulae
+brew tap koekeishiya/formulae
+
+brew install $(cat "$ROOT_DIR"/brew_formulae)
+brew install $(cat "$ROOT_DIR"/brew_casks)
+
+echo "Do you have the VSCode CLI set up on your system? (y/n)"
+read answer
+
+if [ "$answer" = "y" ]; then
+  echo "Installing VSCode extensions..."
+
+  while IFS= read -r extension || [[ -n "$extension" ]]; do
+  if [[ -n "$extension" ]]; then
+    echo "Installing extension: $extension"
+    code --install-extension "$extension"
+  fi
+  done < "$EXTENSIONS_FILE"
+
+  echo "All extensions have been installed."
+elif [ "$answer" = "n" ]; then
+  echo "Navigate to https://code.visualstudio.com/docs/editor/command-line."
+else
+  echo "Invalid response. Please answer with 'y' or 'n'."
+fi
+
