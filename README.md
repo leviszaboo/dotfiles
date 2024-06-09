@@ -14,5 +14,11 @@ cd $"HOME"/dotfiles
 stow .
 
 brew services start sketchybar
+
+ln -s $(which sketchybar) $(dirname $(which sketchybar))/bottom_bar
 nohup bottom_bar --config ~/.config/bottom_bar/sketchybarrc > /dev/null 2>&1 &
+```
+4. Install Oh My Zsh
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
