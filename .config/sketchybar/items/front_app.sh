@@ -3,8 +3,8 @@
 sketchybar --add item front_app left \
            --set front_app icon.color=$ACCENT_COLOR \
                                  icon.font="sketchybar-app-font:Regular:16.0" \
-                                 label.color=$BAR_COLOR \
-                                 background.color=$BAR_COLOR \
+                                 label.color=$BRACKET_COLOR \
+                                 background.color=$BRACKET_COLOR \
                                  icon.y_offset=-1 \
                                  padding_left=0 \
                                  label.padding_right=0 \

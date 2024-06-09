@@ -16,6 +16,8 @@ bar_bottom=(
   y_offset=6
   shadow=true
   color=$BAR_COLOR
+  border_color=0xffc8c093
+  border_width=2
 )
 
 bottom_bar --bar "${bar_bottom[@]}"
@@ -41,7 +43,7 @@ bottom_bar --default "${default[@]}"
 source "$ITEM_DIR/spaces.sh"
 
 # Center items
-#
+source "$ITEM_DIR/spotify.sh"
 
 # Right items
 source "$ITEM_DIR/cpu.sh"
@@ -49,13 +51,8 @@ source "$ITEM_DIR/temperature.sh"
 source "$ITEM_DIR/ram.sh"
 source "$ITEM_DIR/disk.sh"
 source "$ITEM_DIR/netspeed.sh"
+source "$ITEM_DIR/filler.sh"
 
-bottom_bar --add bracket sysinfo netspeed.up netspeed.down ram cpu \
-           --set sysinfo background.color=$BRACKET_COLOR \
-                         background.corner_radius=8 \
-                         background.height=39 \
-                         background.border_color=0xffc8c093 \
-                         background.border_width=2  
 
 bottom_bar --update
  

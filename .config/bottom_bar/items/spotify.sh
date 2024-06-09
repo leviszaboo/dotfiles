@@ -13,11 +13,10 @@ spotify_anchor=(
   icon.font="sketchybar-app-font:Regular:21"
   icon.color=$ACCENT_COLOR
   popup.background.color=$DARK_BG
-  popup.y_offset=4
   popup.background.corner_radius=10
   popup.background.border_color=$WHITE
   popup.background.border_width=2
-  label.drawing=on
+  label.drawing=off
   y_offset=0
 )
 
@@ -73,7 +72,7 @@ spotify_state=(
   width=0
   slider.background.height=5
   slider.background.corner_radius=1
-  slider.background.color=$BAR_COLOR
+  slider.background.color=$BRACKET_COLOR
   slider.highlight_color=$SECONDARY_COLOR
   slider.percentage=40
   slider.width=122
@@ -109,7 +108,7 @@ spotify_play=(
   background.corner_radius=20
   width=40
   align=center
-  background.color=$BAR_COLOR
+  background.color=$BRACKET_COLOR
   background.border_color=$WHITE
   background.border_width=0
   background.drawing=on
@@ -144,13 +143,13 @@ spotify_repeat=(
 )
 
 spotify_controls=(
-  background.color=$BAR_COLOR
+  background.color=$BRACKET_COLOR
   background.corner_radius=11
   background.drawing=on
   y_offset=-45
 )
 
-sketchybar --add event spotify_change $SPOTIFY_EVENT             \
+bottom_bar --add event spotify_change $SPOTIFY_EVENT             \
            --add item spotify.anchor center                      \
            --set spotify.anchor "${spotify_anchor[@]}"           \
            --subscribe spotify.anchor mouse.entered mouse.exited \

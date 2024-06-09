@@ -10,7 +10,7 @@ bottom_bar --add item space_separator left                             \
                                  script="$PLUGIN_DIR/space_windows.sh" \
            --subscribe space_separator space_windows_change
 
-SPACE_ICONS=("1" "2" "3" "4" "5")
+SPACE_ICONS=("1" "2" "3" "4" "5" "6")
 
 for i in "${!SPACE_ICONS[@]}"
 do
@@ -31,9 +31,3 @@ do
   bottom_bar --add space space."$sid" left --set space."$sid" "${space[@]}" 
 done
 
-bottom_bar --add bracket spaces '/space\..*/' space_separator \
-           --set spaces background.color=$BRACKET_COLOR \
-                        background.corner_radius=8 \
-                        background.height=39 \
-                        background.border_color=0xffc8c093 \
-                        background.border_width=2 

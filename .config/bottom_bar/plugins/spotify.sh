@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 
 next ()
 {
@@ -19,10 +19,10 @@ repeat ()
 {
   REPEAT=$(osascript -e 'tell application "Spotify" to get repeating')
   if [ "$REPEAT" = "false" ]; then
-    sketchybar -m --set spotify.repeat icon.highlight=on
+    bottom_bar -m --set spotify.repeat icon.highlight=on
     osascript -e 'tell application "Spotify" to set repeating to true'
   else 
-    sketchybar -m --set spotify.repeat icon.highlight=off
+    bottom_bar -m --set spotify.repeat icon.highlight=off
     osascript -e 'tell application "Spotify" to set repeating to false'
   fi
 }
@@ -31,10 +31,10 @@ shuffle ()
 {
   SHUFFLE=$(osascript -e 'tell application "Spotify" to get shuffling')
   if [ "$SHUFFLE" = "false" ]; then
-    sketchybar -m --set spotify.shuffle icon.highlight=on
+    bottom_bar -m --set spotify.shuffle icon.highlight=on
     osascript -e 'tell application "Spotify" to set shuffling to true'
   else 
-    sketchybar -m --set spotify.shuffle icon.highlight=off
+    bottom_bar -m --set spotify.shuffle icon.highlight=off
     osascript -e 'tell application "Spotify" to set shuffling to false'
   fi
 }
@@ -74,7 +74,7 @@ update ()
     args+=(--set spotify.anchor popup.drawing=off
            --set spotify.play icon=􀊄                         )
   fi
-  sketchybar -m "${args[@]}"
+  bottom_bar -m "${args[@]}"
 }
 
 scrubbing() {
@@ -83,7 +83,7 @@ scrubbing() {
 
   TARGET=$((DURATION*PERCENTAGE/100))
   osascript -e "tell application \"Spotify\" to set player position to $TARGET"
-  sketchybar --set spotify.state slider.percentage=$PERCENTAGE
+  bottom_bar --set spotify.state slider.percentage=$PERCENTAGE
 }
 
 scroll() {
@@ -93,7 +93,7 @@ scroll() {
   FLOAT="$(osascript -e 'tell application "Spotify" to get player position')"
   TIME=${FLOAT%.*}
   
-  sketchybar --animate linear 10 \
+  bottom_bar --animate linear 10 \
              --set spotify.state slider.percentage="$((TIME*100/DURATION))" \
                                  icon="$(date -r $TIME +'%M:%S')" \
                                  label="$(date -r $DURATION +'%M:%S')"
@@ -119,7 +119,7 @@ mouse_clicked () {
 }
 
 popup () {
-  sketchybar --set spotify.anchor popup.drawing=$1
+  bottom_bar --set spotify.anchor popup.drawing=$1
 }
 
 routine() {

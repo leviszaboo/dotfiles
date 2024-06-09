@@ -17,18 +17,16 @@ ITEM_DIR="$CONFIG_DIR/items"
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 #
 bar_top=(
-  padding_left=12
-  padding_right=5
+  padding_left=0
+  padding_right=0
   position=top
-  height=38
+  height=45
   corner_radius=8
   blur_radius=30
   margin=12
-  y_offset=12
+  y_offset=2
   shadow=true
   color=$BAR_COLOR
-  border_color=0xffc8c093
-  border_width=2
 )
 
 sketchybar --bar "${bar_top[@]}"
@@ -66,17 +64,30 @@ sketchybar --add item apple.logo left \
 
 ##### Adding Left Items #####
 
+source "$ITEM_DIR/apple_logo.sh"
 source "$ITEM_DIR/front_app.sh"
 # source "$ITEM_DIR/spaces.sh"
-
-##### Adding Center Items #####
-source "$ITEM_DIR/spotify.sh"
 
 ##### Adding Right Items #####
 
 source "$ITEM_DIR/calendar.sh"
 source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/wifi.sh"
+source "$ITEM_DIR/filler.sh"
+
+sketchybar --add bracket left apple.logo front_app filler.left \
+           --set left background.color=$BRACKET_COLOR \
+                         background.corner_radius=8 \
+                         background.height=39 \
+                         background.border_color=0xffc8c093 \
+                         background.border_width=2      
+
+sketchybar --add bracket right filler.right wifi battery calendar  \
+           --set right background.color=$BRACKET_COLOR \
+                         background.corner_radius=8 \
+                         background.height=39 \
+                         background.border_color=0xffc8c093 \
+                         background.border_width=2
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
