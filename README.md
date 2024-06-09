@@ -13,6 +13,8 @@ My macOS configuration files.
 cd $"HOME"/dotfiles
 stow .
 
+curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v1.0.16/sketchybar-app-font.ttf -o $HOME/Library/Fonts/sketchybar-app-font.ttf
+
 brew services start sketchybar
 
 ln -s $(which sketchybar) $(dirname $(which sketchybar))/bottom_bar
