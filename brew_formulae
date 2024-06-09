@@ -25,8 +25,7 @@ lpeg
 luajit
 luv
 lz4
-mongodb-community
-mongodb-database-tools
+mongodb-atlas-cli
 mongosh
 mpfr
 msgpack
