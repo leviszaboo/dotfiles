@@ -2,7 +2,8 @@
 
 My macOS configuration files.
 
-<img width="1440" alt="Screenshot 2024-06-08 at 13 07 22" src="https://github.com/leviszaboo/dotfiles/assets/134519958/ab951cf0-507d-49fa-8546-dee019f9346d">
+<img width="1470" alt="Screenshot 2024-06-10 at 12 02 26" src="https://github.com/leviszaboo/dotfiles/assets/134519958/8670c8dd-a7db-4e9c-ac2b-20c3c33ecb9f">
+
 
 ### Setup
 
